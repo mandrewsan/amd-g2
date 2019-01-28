@@ -1,0 +1,31 @@
+{
+  "name": "gatsby-starter-default-v2",
+  "description": "Gatsby default starter v2",
+  "version": "0.1.0",
+  "author": "Gatsby Central",
+  "dependencies": {
+    "gatsby": "^2.0.98",
+    "gatsby-plugin-react-helmet": "^2.0.12-9",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-helmet": "^5.2.0"
+  },
+  "keywords": [
+    "gatsby",
+    "v2"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "prettier": "^1.13.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default-v2"
+  }
+}

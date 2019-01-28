@@ -65,9 +65,16 @@ const IndexPage = () => (
     </section>
     <section className="callout">
       <div className="container">
-        Callout section
+        <h2>Get in touch</h2>
+        <div className="social">
+          <a href="#"><i className="fab fa-twitter"></i></a>
+          <a href="#"><i className="fab fa-linkedin"></i></a>
+        </div>
       </div>
     </section>
+    <footer>
+      <h2>Copyright 2019 Andrew Delos Reyes. All rights reserved.</h2>
+    </footer>
     {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
 )

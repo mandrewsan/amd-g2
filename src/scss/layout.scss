@@ -2,6 +2,8 @@
 
 header {
     background-color: $dark-gray; 
+    margin: 0 auto;
+    padding: 1.45rem 1.0875rem;
 }
 
 section {
@@ -75,5 +77,32 @@ section {
                 font-weight: 300;
             }
         }
+    }
+}
+
+.callout {
+    background-color: $light-gray;
+    text-align: center;
+
+    h2 {
+        font-size: 1.3em;
+        font-weight: 600;
+    }
+    .social {
+        @include padding-vert(2em);
+        a {
+            font-size: 2em;
+            @include padding-horiz(8px);
+        }
+    }
+}
+
+footer {
+    background-color: $dark-gray;
+    padding: 5em;
+    color: $white;
+    text-align: center;
+    h2 {
+        text-transform: none;
     }
 }

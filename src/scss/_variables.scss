@@ -1,0 +1,37 @@
+$dark-gray: #333333;
+$light-gray: #f3f5f8;
+$gray: #8c9398;
+$blue: #209cee;
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+@mixin main-font() {
+    font-family: 'Varela Round', sans-serif;
+}
+
+@mixin padding-vert($padding-vert) {
+    padding-top: $padding-vert !important;
+    padding-bottom: $padding-vert !important;
+}
+  
+@mixin padding-horiz($padding-horiz) {
+    padding-left: $padding-horiz;
+    padding-right: $padding-horiz;
+}
+
+@mixin margin-vert($property) {
+    margin-top: $property !important;
+    margin-bottom: $property !important;
+}
+
+// Breakpoints
+$mobile: 768px;
+$tablet: 991px;
+$phablet: 1024px;
+$desktop: 1200px;
+
+@mixin breakpoint-min($device) {
+    @media (min-width: $device) {
+        @content;
+    }
+}

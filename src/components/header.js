@@ -2,12 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
+  <header>
     <div
       style={{
         margin: '0 auto',
@@ -27,7 +22,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
-  </div>
+  </header>
 )
 
 export default Header

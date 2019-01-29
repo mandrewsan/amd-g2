@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-free/js/all.js'
 
 const IndexPage = () => (
   <Layout>
-    <section class="hero is-info is-large">
+    <section class="hero is-large">
       <div className="hero-body">
         <div className="container">
           <h1 className="title">

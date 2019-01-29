@@ -55,10 +55,10 @@ const IndexPage = () => (
     </section>
     <section className="transition">
       <div className="container">
-        Projects
+        <h2>Projects</h2>
       </div>
     </section>
-    <section className="projects">
+    <section id="projects" className="projects">
       <div className="container">
         Project list
       </div>

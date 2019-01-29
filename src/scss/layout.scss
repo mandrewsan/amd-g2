@@ -1,15 +1,7 @@
 @import 'variables';
 
-header {
-    background-color: transparent; 
-    margin: 0 auto;
-    padding: 1.45rem 1.0875rem;
-    position: relative;
-    z-index: 9;
-}
-
 section {
-    padding: 90px 0 100px;
+    padding: 110px 0 120px;
 }
 
 .hero {
@@ -19,18 +11,19 @@ section {
     background-attachment: fixed;
     background-color: transparent;
     background-position-x: 90%;
-    color: $dark-gray;
     position: relative;
-    margin-top: -64px;
+    margin-top: -103px;
     padding-bottom: 164px;
     z-index: -1;
 
     h1 {
         letter-spacing: 4px;
+        color: $dark-blue-gray;
     }
     h2 {
         letter-spacing: 1px;
         @include margin-vert(1em);
+        color: $dark-blue-gray;
     }
     &:before {
         content: "";
@@ -99,6 +92,32 @@ section {
                 font-weight: 300;
             }
         }
+    }
+}
+
+.transition {
+    text-align: center;
+    @include padding-vert(10em);
+    background: url('../img/66.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-x: 70%;
+    position: relative;
+    color: $white;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(112, 116, 125, 0.9);
+
+    }
+
+    h2 {
+        font-size: 3em;
     }
 }
 

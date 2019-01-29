@@ -1,0 +1,41 @@
+@import 'variables';
+@import 'bulma/sass/utilities/_all.sass';
+@import 'bulma/sass/components/navbar.sass';
+
+header {
+    background-color: transparent; 
+    margin: 0 auto;
+    padding: 1.45rem 1.0875rem;
+    position: relative;
+    z-index: 9;
+
+    nav {
+        &.navbar {
+            &.is-transparent {
+                background: transparent !important;
+            }
+
+            .navbar-brand {
+                .navbar-item {
+                    font-size: 1.3em;
+                    text-transform: uppercase;
+                    color: $blue-gray;
+                    font-weight: 600;
+                    letter-spacing: 1.5px;
+                }
+            }
+
+            .navbar-menu {
+                background: transparent !important;
+                box-shadow: none;
+
+                .navbar-item, .navbar-link {
+                    color: $blue-gray;
+                    font-weight: 600;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

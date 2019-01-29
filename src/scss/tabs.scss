@@ -6,19 +6,26 @@
 
         .columns {
             flex-wrap: wrap;
+            justify-content: center;
 
             .column {
+                margin-bottom: 1em;
                 @include breakpoint-min($tablet) {
-                    max-width: 33%;
-                    flex-basis: 33%;
+                    max-width: 25%;
+                    flex-basis: 25%;
                 }
             }
         }
         img {
             width: 100%;
+            box-shadow: 0px 2px 7px darkgrey;
         }
         &.is-active {
             display: block;
         }
+    }
+
+    .tab-contents {
+        margin-top: 3em;
     }
 }

@@ -76,7 +76,7 @@ class Tabs extends React.Component {
     const projectImages = this.state.projects.map((project, i) => {
       let projectContent = this.state[project].map((img, i) => {
         return (
-          <li className="column is-four" key={i}>
+          <li className="column is-one-quarter" key={i}>
             <img src={`${img}`} alt="" />
           </li>
         )
@@ -87,7 +87,7 @@ class Tabs extends React.Component {
           className={`tab-content ${project} ${(this.state.activeTab === project ? `is-active` : ``)}`} 
           key={i}
           >
-          <ul className="columns">{projectContent}</ul>
+          <ul className="columns is-8 is-variable">{projectContent}</ul>
         </div>
       )
     })

@@ -27,26 +27,26 @@ const Header = ({ siteTitle }) => (
               Projects
             </a>
             <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link" href="#">
+              <a className="navbar-link" href="#blog">
                 Blog
               </a>
               <div className="navbar-dropdown is-boxed">
-                <a className="navbar-item" href="#">
+                <a className="navbar-item" href="#all">
                   All Posts
                 </a>
-                <a className="navbar-item" href="#">
+                <a className="navbar-item" href="#cats">
                   Categories
                 </a>
                 <hr className="navbar-divider" />
-                <a className="navbar-item" href="#">
+                <a className="navbar-item" href="#daily">
                   Daily
                 </a>
-                <a className="navbar-item" href="#">
+                <a className="navbar-item" href="#oneline">
                   One-liners
                 </a>
               </div>
             </div>
-            <a className="navbar-item" href="#">
+            <a className="navbar-item" href="#contact">
                 Contact
               </a>
           </div>

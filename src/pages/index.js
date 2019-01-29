@@ -1,13 +1,14 @@
 import React from 'react'
 // import { Link } from 'gatsby'
 import Layout from '../components/layout'
+import Tabs from '../components/tabs'
 
 import 'bulma/bulma.sass'
 import '@fortawesome/fontawesome-free/js/all.js'
 
 const IndexPage = () => (
   <Layout>
-    <section class="hero is-large">
+    <section className="hero is-large">
       <div className="hero-body">
         <div className="container">
           <h1 className="title">
@@ -60,15 +61,17 @@ const IndexPage = () => (
     </section>
     <section id="projects" className="projects">
       <div className="container">
-        Project list
+        
+        <Tabs />
+
       </div>
     </section>
     <section className="callout">
       <div className="container">
         <h2>Get in touch</h2>
         <div className="social">
-          <a href="#"><i className="fab fa-twitter"></i></a>
-          <a href="#"><i className="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/its_andrews"><i className="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/andrewdelosreyes/"><i className="fab fa-linkedin"></i></a>
         </div>
       </div>
     </section>

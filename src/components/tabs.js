@@ -1,15 +1,15 @@
 import React from 'react'
 import { StaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import '../scss/tabs.scss'
 
 class Tab extends React.Component {
-
   render() {
     return (
       <li 
         className={this.props.className}
         onClick={() => {this.props.onTabClick(this.props.value)}}>
-        <a>{this.props.content}</a>
+        <a href="/">{this.props.content}</a>
       </li>
     )
   }
@@ -57,7 +57,6 @@ class Tabs extends React.Component {
       ...prevState,
       activeTab: project
     }))
-    console.log(project)
   }
 
   render() {

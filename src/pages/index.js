@@ -42,7 +42,7 @@ const IndexPage = () => (
               <i className="fa fa-code"></i>
             </div>
             <h3>Front-end Development</h3>
-            <p>Strong HTML and CSS skills. Javascript, jQuery, Sightly (AEM) and some PHP. Sass and Grunt. Responsive sites hand-coded from scratch or using Bootstrap. Version control using Git with teams.</p>
+            <p>I enjoy working with React. Most recently I've gotten into static sites using GatsbyJS, as demonstrated by this site.</p>
           </div>
           <div className="column is-four">
             <div className="icon">
@@ -61,9 +61,7 @@ const IndexPage = () => (
     </section>
     <section id="projects" className="projects">
       <div className="container">
-        
         <Tabs />
-
       </div>
     </section>
     <section className="callout">
@@ -78,7 +76,6 @@ const IndexPage = () => (
     <footer>
       <h2>Copyright 2019 Andrew Delos Reyes. All rights reserved.</h2>
     </footer>
-    {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
 )
 

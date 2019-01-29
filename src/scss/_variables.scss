@@ -29,8 +29,8 @@ $white: whitesmoke;
 
 // Breakpoints
 $mobile: 768px;
-$tablet: 991px;
-$phablet: 1024px;
+$phablet: 991px;
+$tablet: 1024px;
 $desktop: 1200px;
 
 @mixin breakpoint-min($device) {

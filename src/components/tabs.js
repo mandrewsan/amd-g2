@@ -9,7 +9,7 @@ class Tab extends React.Component {
       <li 
         className={this.props.className}
         onClick={() => {this.props.onTabClick(this.props.value)}}>
-        <a href="/">{this.props.content}</a>
+        <a>{this.props.content}</a>
       </li>
     )
   }
@@ -110,6 +110,15 @@ export default () => (
   <StaticQuery
     query={graphql`
       query {
+        allDirectory(filter: { sourceInstanceName: { eq: "projects" } }) {
+          edges {
+            node {
+              id
+              relativePath
+              name
+            }
+          }
+        }
         allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
           edges{
             node {
@@ -123,7 +132,8 @@ export default () => (
       }
     `}
     render = {data => (
-      <Tabs data={data.allFile.edges}/>
+      <Tabs 
+        data={data.allFile.edges}/>
     )}
   />
 )

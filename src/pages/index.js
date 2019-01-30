@@ -1,12 +1,26 @@
 import React from 'react'
-// import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import Tabs from '../components/tabs'
+import { Link, graphql } from 'gatsby'
 
 import 'bulma/bulma.sass'
 import '@fortawesome/fontawesome-free/js/all.js'
 
-const IndexPage = () => (
+const year = () => (
+  <span>{(new Date()).getFullYear()}</span>
+)
+
+const Skill = props => (
+  <div className="column is-four">
+    <div className="icon">
+      <i className={`fa ${props.icon}`}></i>
+    </div>
+    <h3>{props.heading}</h3>
+    <p>{props.content}</p>
+  </div>
+)
+
+const IndexPage = ({ data }) => (
   <Layout>
     <section className="hero is-large">
       <div className="hero-body">
@@ -15,7 +29,7 @@ const IndexPage = () => (
             Andrew Delos Reyes
           </h1>
           <h2 className="subtitle">
-            Digital Portfolio
+            is probably thinking about a burger right now
           </h2>
         </div>
       </div>
@@ -30,27 +44,21 @@ const IndexPage = () => (
       <div className="container">
         <h2>What I do</h2>
         <div className="columns">
-          <div className="column is-four">
-            <div className="icon">
-              <i className="fa fa-eye"></i>
-            </div>
-            <h3>Digital Design</h3>
-            <p>Websites, landing pages, and emails. Mobile apps and other UI, including wireframes using Balsamiq, and hi-fi mock-ups with InvisionApp. Ads for display network, as well as print ads and banners.</p>
-          </div>
-          <div className="column is-four">
-            <div className="icon">
-              <i className="fa fa-code"></i>
-            </div>
-            <h3>Front-end Development</h3>
-            <p>I enjoy working with React. Most recently I've gotten into static sites using GatsbyJS, as demonstrated by this site.</p>
-          </div>
-          <div className="column is-four">
-            <div className="icon">
-              <i className="fa fa-search"></i>
-            </div>
-            <h3>Search Marketing</h3>
-            <p>Skilled at both on-site and off-site optimization, from content strategies to link building. Paid campaign creation and management. Google Analytics and Google Webmaster Tools.</p>
-          </div>
+          <Skill 
+            heading="Digital Design"
+            content="Websites, landing pages, and emails. Mobile apps and other UI, including wireframes using Balsamiq, and hi-fi mock-ups with InvisionApp. Ads for display network, as well as print ads and banners."
+            icon="fa-eye"
+          />
+          <Skill 
+            heading="Front-end Development"
+            content="I enjoy working with React. Most recently I've gotten into static sites using GatsbyJS, as demonstrated by this site."
+            icon="fa-code"
+          />
+          <Skill 
+            heading="Search Marketing"
+            content="Skilled at both on-site and off-site optimization, from content strategies to link building. Paid campaign creation and management. Google Analytics and Google Webmaster Tools."
+            icon="fa-search"
+          />
         </div>
       </div>
     </section>
@@ -64,7 +72,30 @@ const IndexPage = () => (
         <Tabs />
       </div>
     </section>
-    <section className="callout">
+    <section className="transition">
+      <div className="container">
+        <h2>Ramblings</h2>
+      </div>
+    </section>
+    <section className="ramblings">
+      <div className="container">
+        <div>
+          <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <div className="post" key={node.id}>
+              <Link to={node.fields.slug}>
+                <h3>
+                  {node.frontmatter.title}{" "}
+                  <span>{node.frontmatter.date}</span>
+                </h3>
+                <p>{node.excerpt}</p>
+              </Link> 
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section className="callout" id="contact">
       <div className="container">
         <h2>Get in touch</h2>
         <div className="social">
@@ -74,9 +105,30 @@ const IndexPage = () => (
       </div>
     </section>
     <footer>
-      <h2>Copyright 2019 Andrew Delos Reyes. All rights reserved.</h2>
+      <h2>Copyright &copy; {year} Andrew Delos Reyes. All rights reserved.</h2>
     </footer>
   </Layout>
 )
 
 export default IndexPage
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt(pruneLength: 300)
+        }
+      }
+    }
+  }
+`

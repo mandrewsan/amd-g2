@@ -38,3 +38,9 @@ $desktop: 1200px;
         @content;
     }
 }
+
+@mixin breakpoint-max($device) {
+    @media (max-width: $device) {
+        @content;
+    }
+}

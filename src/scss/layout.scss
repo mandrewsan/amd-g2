@@ -121,6 +121,32 @@ section {
     }
 }
 
+.ramblings {
+    .post {
+        @include margin-vert(30px);
+        padding: 20px;
+        border: 1px solid #d3d3d3;
+        border-radius: 3px;
+        max-width: 80%;
+    }
+    h3 {
+        margin-bottom: 12px;
+        color: $dark-gray;
+        font-size: 0.8em;
+        letter-spacing: 0.5px;
+        span {
+            display: block;
+            font-size: 0.8em;
+            line-height: 1.8em;
+        }
+    }
+    p {
+        font-size: 0.8em;
+        line-height: 1.3em;
+        letter-spacing: 0.1px;
+    }
+}
+
 .callout {
     background-color: $light-gray;
     text-align: center;
@@ -145,5 +171,7 @@ footer {
     text-align: center;
     h2 {
         text-transform: none;
+        font-size: 0.8em;
+        line-height: 1em;
     }
 }

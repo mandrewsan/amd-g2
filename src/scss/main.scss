@@ -15,3 +15,9 @@ h3 {
 p {
     color: $gray;
 }
+
+.container {
+    @include breakpoint-max($phablet) {
+        width: 90%;
+    }
+}

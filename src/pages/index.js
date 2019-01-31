@@ -27,7 +27,7 @@ const Skill = props => (
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <section className="hero is-large">
+    <section className="hero is-fullheight">
       <div className="hero-body">
         <div className="container">
           <h1 className="title">
@@ -85,7 +85,7 @@ const IndexPage = ({ data }) => (
     <section className="ramblings" id="blog">
       <div className="container">
         <div>
-          <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+          <h2>{data.allMarkdownRemark.totalCount} Posts</h2>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div className="post" key={node.id}>
               <Link to={node.fields.slug}>

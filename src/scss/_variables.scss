@@ -27,6 +27,13 @@ $white: whitesmoke;
     margin-bottom: $property !important;
 }
 
+@mixin widthfix {
+    max-width: 100%;
+    @include breakpoint-max($desktop) {
+        margin: 0 auto;
+    }
+}
+
 // Breakpoints
 $mobile: 768px;
 $phablet: 991px;

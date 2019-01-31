@@ -27,5 +27,9 @@
 
     .tab-contents {
         margin-top: 3em;
+
+        ul {
+            @include widthfix;
+        }
     }
 }

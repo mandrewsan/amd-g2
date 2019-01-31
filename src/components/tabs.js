@@ -2,12 +2,43 @@ import React from 'react'
 import { StaticQuery } from 'gatsby'
 import { graphql } from 'gatsby'
 import '../scss/tabs.scss'
+import '../scss/modal.scss'
 
 class Modal extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      ...this.props,
+      modalActive: false
+    }
+
+    this.closeModal = this.closeModal.bind(this)
+  }
+
+  closeModal() {
+    console.log('modal close clicked')
+    this.setState(prevState => ({
+      ...prevState,
+      activeModal: ""
+    }))
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.isActive) {
+      this.setState(nextProps => {
+        return {
+          ...nextProps
+        }
+      })
+    }
+
+    console.log(nextProps)
+  }
 
   render() {
     return (
-      <div className={`modal ${(this.props.isActive ? 'is-active' : '')}`}>
+      <div className={`modal ${(this.state.isActive ? 'is-active' : '')}`}>
         <div className="modal-background"></div>
         <div className="modal-content">
           <p className="image is-4by3">
@@ -15,7 +46,7 @@ class Modal extends React.Component {
           </p>
         </div>
         <button 
-          onClick={()=> this.props.handleModalClose()} 
+          onClick={()=> this.props.closeModal()} 
           className="modal-close is-large" 
           aria-label="close"></button>
       </div>
@@ -89,13 +120,6 @@ class Tabs extends React.Component {
     }))
   }
 
-  handleModalClose() {
-    this.setState(prevState => ({
-      ...prevState,
-      activeModal: ""
-    }))
-  }
-
   render() {
     const projectNames = this.state.projects.map((project, i) => {
       let formattedName = project.replace(/-/g, " ").toUpperCase()
@@ -119,8 +143,7 @@ class Tabs extends React.Component {
             <img src={`${img}`} alt="" />
             <Modal 
               src={img}
-              isActive={this.state.activeModal === img}
-              handleModalClose={this.handleModalClose} />
+              isActive={this.state.activeModal === img}/>
           </li>
         )
       })

@@ -82,7 +82,7 @@ const IndexPage = ({ data }) => (
         <h2>Ramblings</h2>
       </div>
     </section>
-    <section className="ramblings">
+    <section className="ramblings" id="blog">
       <div className="container">
         <div>
           <h4>{data.allMarkdownRemark.totalCount} Posts</h4>

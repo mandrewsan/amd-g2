@@ -117,10 +117,10 @@ class Tabs extends React.Component {
             key={i}
             onClick={() => this.handleModalClick(img)}>
             <img src={`${img}`} alt="" />
-            {/* <Modal 
+            <Modal 
               src={img}
               isActive={this.state.activeModal === img}
-              handleModalClose={this.handleModalClose} /> */}
+              handleModalClose={this.handleModalClose} />
           </li>
         )
       })

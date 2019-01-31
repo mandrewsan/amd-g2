@@ -6,9 +6,14 @@ import { Link, graphql } from 'gatsby'
 import 'bulma/bulma.sass'
 import '@fortawesome/fontawesome-free/js/all.js'
 
-const year = () => (
-  <span>{(new Date()).getFullYear()}</span>
-)
+
+function getYear () {
+  return (
+    <span>{(new Date()).getFullYear()}</span>
+  )
+}
+
+const year = getYear()
 
 const Skill = props => (
   <div className="column is-four">

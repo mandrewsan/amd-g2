@@ -3,6 +3,26 @@ import { StaticQuery } from 'gatsby'
 import { graphql } from 'gatsby'
 import '../scss/tabs.scss'
 
+class Modal extends React.Component {
+
+  render() {
+    return (
+      <div className={`modal ${(this.props.isActive ? 'is-active' : '')}`}>
+        <div className="modal-background"></div>
+        <div className="modal-content">
+          <p className="image is-4by3">
+            <img src={this.props.src} alt=""/>
+          </p>
+        </div>
+        <button 
+          onClick={()=> this.props.handleModalClose()} 
+          className="modal-close is-large" 
+          aria-label="close"></button>
+      </div>
+    )
+  }
+}
+
 class Tab extends React.Component {
   render() {
     return (
@@ -45,17 +65,34 @@ class Tabs extends React.Component {
 
     this.state = {
         activeTab: projects[0],
+        activeModal: "",
         projects: projects,
         ...projectsObj
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.handleModalClick = this.handleModalClick.bind(this)
+    this.handleModalClose = this.handleModalClick.bind(this)
   }
 
   handleClick(project) {
     this.setState(prevState => ({
       ...prevState,
       activeTab: project
+    }))
+  }
+
+  handleModalClick(image) {
+    this.setState(prevState => ({
+      ...prevState,
+      activeModal: image
+    }))
+  }
+
+  handleModalClose() {
+    this.setState(prevState => ({
+      ...prevState,
+      activeModal: ""
     }))
   }
 
@@ -75,8 +112,15 @@ class Tabs extends React.Component {
     const projectImages = this.state.projects.map((project, i) => {
       let projectContent = this.state[project].map((img, i) => {
         return (
-          <li className="column is-one-quarter" key={i}>
+          <li 
+            className="column is-one-quarter" 
+            key={i}
+            onClick={() => this.handleModalClick(img)}>
             <img src={`${img}`} alt="" />
+            <Modal 
+              src={img}
+              isActive={this.state.activeModal === img}
+              handleModalClose={this.handleModalClose} />
           </li>
         )
       })

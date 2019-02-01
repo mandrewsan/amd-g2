@@ -34,7 +34,7 @@ const IndexPage = ({ data }) => (
             Andrew Delos Reyes
           </h1>
           <h2 className="subtitle">
-            is probably thinking about a burger right now
+            is walking to the white car
           </h2>
         </div>
       </div>
@@ -51,7 +51,7 @@ const IndexPage = ({ data }) => (
         <div className="columns">
           <Skill 
             heading="Digital Design"
-            content="Websites, landing pages, and emails. Mobile apps and other UI, including wireframes using Balsamiq, and hi-fi mock-ups with InvisionApp. Ads for display network, as well as print ads and banners."
+            content="Websites, landing pages, and emails. Just kidding, don't talk to me about emails."
             icon="fa-eye"
           />
           <Skill 
@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => (
           />
           <Skill 
             heading="Search Marketing"
-            content="Skilled at both on-site and off-site optimization, from content strategies to link building. Paid campaign creation and management. Google Analytics and Google Webmaster Tools."
+            content="On-site and off-site optimization. Paid campaign creation and management. Google Analytics to tell you what's going on."
             icon="fa-search"
           />
         </div>

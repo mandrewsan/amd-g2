@@ -44,7 +44,7 @@ class Header extends React.Component {
                 className="navbar-item"
                 to="/"
               >
-                Delos
+                ADR
               </Link>
               <div 
                 className={`navbar-burger burger ${this.state.navbarActive ? 'is-active':''}`} 
@@ -58,35 +58,35 @@ class Header extends React.Component {
     
             <div className={`navbar-menu ${this.state.navbarActive ? 'is-active':''}`}>
               <div className="navbar-end">
-                <a className="navbar-item" href="#projects">
+                <Link className="navbar-item" to="#projects">
                   Projects
-                </a>
-                <a className="navbar-item" href="#blog">
+                </Link>
+                <Link className="navbar-item" to="#blog">
                   Blog
-                </a>
+                </Link>
                 {/* <div className="navbar-item has-dropdown is-hoverable">
-                  <a className="navbar-link" href="#blog">
+                  <Link className="navbar-link" to="#blog">
                     Blog
-                  </a>
+                  </Link>
                   <div className="navbar-dropdown is-boxed">
-                    <a className="navbar-item" href="#all">
+                    <Link className="navbar-item" to="#all">
                       All Posts
-                    </a>
-                    <a className="navbar-item" href="#cats">
+                    </Link>
+                    <Link className="navbar-item" to="#cats">
                       Categories
-                    </a>
+                    </Link>
                     <hr className="navbar-divider" />
-                    <a className="navbar-item" href="#daily">
+                    <Link className="navbar-item" to="#daily">
                       Daily
-                    </a>
-                    <a className="navbar-item" href="#oneline">
+                    </Link>
+                    <Link className="navbar-item" to="#oneline">
                       One-liners
-                    </a>
+                    </Link>
                   </div>
                 </div> */}
-                <a className="navbar-item" href="#contact">
+                <Link className="navbar-item" to="#contact">
                     Contact
-                  </a>
+                  </Link>
               </div>
             </div>
           </div>

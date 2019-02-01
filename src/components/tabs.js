@@ -2,26 +2,8 @@ import React from 'react'
 import { StaticQuery } from 'gatsby'
 import { graphql } from 'gatsby'
 import '../scss/tabs.scss'
+import Modal from '../components/modal'
 
-class Modal extends React.Component {
-
-  render() {
-    return (
-      <div className={`modal ${(this.props.isActive ? 'is-active' : '')}`}>
-        <div className="modal-background"></div>
-        <div className="modal-content">
-          <p className="image is-4by3">
-            <img src={this.props.src} alt=""/>
-          </p>
-        </div>
-        <button 
-          onClick={()=> this.props.handleModalClose()} 
-          className="modal-close is-large" 
-          aria-label="close"></button>
-      </div>
-    )
-  }
-}
 
 class Tab extends React.Component {
   render() {
@@ -65,7 +47,8 @@ class Tabs extends React.Component {
 
     this.state = {
         activeTab: projects[0],
-        activeModal: "",
+        modalImg: "",
+        modalActive: false,
         projects: projects,
         ...projectsObj
     }
@@ -85,15 +68,15 @@ class Tabs extends React.Component {
   handleModalClick(image) {
     this.setState(prevState => ({
       ...prevState,
-      activeModal: image
+      modalImg: image,
+      modalActive: true
     }))
   }
 
   handleModalClose() {
-    this.setState(prevState => ({
-      ...prevState,
-      activeModal: ""
-    }))
+    this.setState({
+      modalActive: false
+    })
   }
 
   render() {
@@ -117,10 +100,6 @@ class Tabs extends React.Component {
             key={i}
             onClick={() => this.handleModalClick(img)}>
             <img src={`${img}`} alt="" />
-            {/* <Modal 
-              src={img}
-              isActive={this.state.activeModal === img}
-              handleModalClose={this.handleModalClose} /> */}
           </li>
         )
       })
@@ -145,6 +124,10 @@ class Tabs extends React.Component {
         <div className="tab-contents">
           {projectImages}
         </div>
+        <Modal 
+          img={this.state.modalImg} 
+          isActive={this.state.modalActive}
+          closeModal={this.handleModalClose} />
       </div>
     )
   }

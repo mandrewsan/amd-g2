@@ -2,57 +2,8 @@ import React from 'react'
 import { StaticQuery } from 'gatsby'
 import { graphql } from 'gatsby'
 import '../scss/tabs.scss'
-import '../scss/modal.scss'
+import Modal from '../components/modal'
 
-class Modal extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      ...this.props,
-      modalActive: false
-    }
-
-    this.closeModal = this.closeModal.bind(this)
-  }
-
-  closeModal() {
-    console.log('modal close clicked')
-    this.setState(prevState => ({
-      ...prevState,
-      activeModal: ""
-    }))
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.isActive) {
-      this.setState(nextProps => {
-        return {
-          ...nextProps
-        }
-      })
-    }
-
-    console.log(nextProps)
-  }
-
-  render() {
-    return (
-      <div className={`modal ${(this.state.isActive ? 'is-active' : '')}`}>
-        <div className="modal-background"></div>
-        <div className="modal-content">
-          <p className="image is-4by3">
-            <img src={this.props.src} alt=""/>
-          </p>
-        </div>
-        <button 
-          onClick={()=> this.props.closeModal()} 
-          className="modal-close is-large" 
-          aria-label="close"></button>
-      </div>
-    )
-  }
-}
 
 class Tab extends React.Component {
   render() {
@@ -96,14 +47,15 @@ class Tabs extends React.Component {
 
     this.state = {
         activeTab: projects[0],
-        activeModal: "",
+        modalImg: '',
+        modalActive: false,
         projects: projects,
         ...projectsObj
     }
 
     this.handleClick = this.handleClick.bind(this)
     this.handleModalClick = this.handleModalClick.bind(this)
-    this.handleModalClose = this.handleModalClick.bind(this)
+    this.handleModalClose = this.handleModalClose.bind(this)
   }
 
   handleClick(project) {
@@ -116,8 +68,19 @@ class Tabs extends React.Component {
   handleModalClick(image) {
     this.setState(prevState => ({
       ...prevState,
-      activeModal: image
+      modalImg: image
     }))
+  }
+
+  handleModalClose() {
+    this.setState(prevState => ({
+      ...prevState,
+      modalImg: '',
+    }))
+  }
+
+  componentDidUpdate() {
+    console.log('state', this.state.modalImg)
   }
 
   render() {
@@ -141,9 +104,6 @@ class Tabs extends React.Component {
             key={i}
             onClick={() => this.handleModalClick(img)}>
             <img src={`${img}`} alt="" />
-            <Modal 
-              src={img}
-              isActive={this.state.activeModal === img}/>
           </li>
         )
       })
@@ -168,6 +128,9 @@ class Tabs extends React.Component {
         <div className="tab-contents">
           {projectImages}
         </div>
+        <Modal 
+          img={this.state.modalImg}
+          closeModal={this.handleModalClose} />
       </div>
     )
   }

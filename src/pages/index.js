@@ -6,15 +6,6 @@ import { Link, graphql } from 'gatsby'
 import 'bulma/bulma.sass'
 import '@fortawesome/fontawesome-free/js/all.js'
 
-
-function getYear () {
-  return (
-    <span>{(new Date()).getFullYear()}</span>
-  )
-}
-
-const year = getYear()
-
 const Skill = props => (
   <div className="column is-four">
     <div className="icon">
@@ -109,9 +100,6 @@ const IndexPage = ({ data }) => (
         </div>
       </div>
     </section>
-    <footer>
-      <h2>Copyright &copy; {year} Andrew Delos Reyes. All rights reserved.</h2>
-    </footer>
   </Layout>
 )
 

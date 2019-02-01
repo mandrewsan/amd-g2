@@ -6,7 +6,7 @@ import "../scss/blog.scss"
 export default ({ data }) => {
   const post = data.markdownRemark
   return (
-    <Layout>
+    <Layout title={`${post.frontmatter.title} | Andrew Delos Reyes`}>
       <div className="post-body">
         <div className="container">
           <h1>{post.frontmatter.title}</h1>

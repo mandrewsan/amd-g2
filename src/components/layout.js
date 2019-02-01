@@ -9,7 +9,7 @@ import './index.css'
 import '../scss/main.scss'
 import '../scss/layout.scss'
 
-const Layout = ({ children, data }) => (
+const Layout = (props,{ data }) => (
   <StaticQuery
     query={graphql`
       query LayoutQuery {
@@ -23,14 +23,14 @@ const Layout = ({ children, data }) => (
     render={data => (
       <div>
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={(props.title? props.title : data.site.siteMetadata.title)}
           meta={[
             { name: 'description', content: 'Probably thinking about a burger right now.' }
           ]}
         />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div>
-          {children}
+          {props.children}
         </div>
       </div>
     )}

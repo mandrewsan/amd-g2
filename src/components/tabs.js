@@ -47,7 +47,7 @@ class Tabs extends React.Component {
 
     this.state = {
         activeTab: projects[0],
-        modalImg: "",
+        modalImg: '',
         modalActive: false,
         projects: projects,
         ...projectsObj
@@ -55,7 +55,7 @@ class Tabs extends React.Component {
 
     this.handleClick = this.handleClick.bind(this)
     this.handleModalClick = this.handleModalClick.bind(this)
-    this.handleModalClose = this.handleModalClick.bind(this)
+    this.handleModalClose = this.handleModalClose.bind(this)
   }
 
   handleClick(project) {
@@ -68,15 +68,19 @@ class Tabs extends React.Component {
   handleModalClick(image) {
     this.setState(prevState => ({
       ...prevState,
-      modalImg: image,
-      modalActive: true
+      modalImg: image
     }))
   }
 
   handleModalClose() {
-    this.setState({
-      modalActive: false
-    })
+    this.setState(prevState => ({
+      ...prevState,
+      modalImg: '',
+    }))
+  }
+
+  componentDidUpdate() {
+    console.log('state', this.state.modalImg)
   }
 
   render() {
@@ -125,8 +129,7 @@ class Tabs extends React.Component {
           {projectImages}
         </div>
         <Modal 
-          img={this.state.modalImg} 
-          isActive={this.state.modalActive}
+          img={this.state.modalImg}
           closeModal={this.handleModalClose} />
       </div>
     )

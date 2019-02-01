@@ -2,10 +2,10 @@ import React from 'react'
 import '../scss/modal.scss'
 
 const Modal = props => (
-  <div className={`modal ${(props.isActive ? 'is-active' : '')}`}>
+  <div className={`modal ${(props.img ? 'is-active' : '')}`}>
     <div className="modal-background"></div>
     <div className="modal-content">
-      <p className="image is-4by3">
+      <p className="image">
         <img src={props.img} alt=""/>
       </p>
     </div>

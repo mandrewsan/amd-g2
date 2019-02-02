@@ -48,6 +48,13 @@
 
         ul {
             @include widthfix;
+            li {
+                @include breakpoint-min ($tablet) {
+                    max-height: 100px;
+                    max-width: 235px !important;
+                    overflow: hidden;
+                }
+            }
         }
     }
 }

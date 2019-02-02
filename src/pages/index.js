@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 
 import 'bulma/bulma.sass'
 import '@fortawesome/fontawesome-free/js/all.js'
+import LazyLoad from 'react-lazyload'
 
 const Skill = props => (
   <div className="column is-four">
@@ -65,7 +66,9 @@ const IndexPage = ({ data }) => (
     </section>
     <section id="projects" className="projects">
       <div className="container">
-        <Tabs />
+        <LazyLoad>
+          <Tabs />
+        </LazyLoad>
       </div>
     </section>
     <section className="transition">

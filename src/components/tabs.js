@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import '../scss/tabs.scss'
 import Modal from '../components/modal'
 
-
 class Tab extends React.Component {
   render() {
     return (
@@ -77,10 +76,6 @@ class Tabs extends React.Component {
       ...prevState,
       modalImg: '',
     }))
-  }
-
-  componentDidUpdate() {
-    console.log('state', this.state.modalImg)
   }
 
   render() {

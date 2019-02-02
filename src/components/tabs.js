@@ -120,10 +120,12 @@ class Tabs extends React.Component {
 
     return (
       <div className="tab-container">
-        <div className="tabs is-centered is-small">
-          <ul>
-            {projectNames}
-          </ul>
+        <div className="tabs-positioner">
+          <div className="tabs is-centered is-small">
+            <ul>
+              {projectNames}
+            </ul>
+          </div>
         </div>
         <div className="tab-contents">
           {projectImages}

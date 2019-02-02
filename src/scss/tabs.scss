@@ -1,6 +1,17 @@
 @import 'variables';
 
 .tab-container {
+    .tabs-positioner {
+        @include breakpoint-max($desktop) {
+            overflow: hidden;
+            height: 40px;
+            @include margin-horiz(-20px);
+            .tabs {
+                min-height: 60px;
+                align-items: start;
+            }
+        }
+    }    
     .tab-content {
         display: none;
 
@@ -38,5 +49,11 @@
         ul {
             @include widthfix;
         }
+    }
+}
+
+@include breakpoint-max($desktop) {
+    .projects {
+        padding-top: 0;
     }
 }

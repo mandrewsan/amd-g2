@@ -26,6 +26,10 @@ $white: whitesmoke;
     margin-top: $property !important;
     margin-bottom: $property !important;
 }
+@mixin margin-horiz($property) {
+    margin-left: $property !important;
+    margin-right: $property !important;
+}
 
 @mixin widthfix {
     max-width: 100%;

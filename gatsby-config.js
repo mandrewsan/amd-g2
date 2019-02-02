@@ -20,5 +20,13 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `UA-53762906-1`,
+        head: false,
+        anonymize: true,
+      },
+    },
   ],
 }

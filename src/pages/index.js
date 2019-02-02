@@ -18,8 +18,8 @@ const Skill = props => (
 )
 
 const IndexPage = ({ data }) => (
-  <Layout>
-    <section className="hero is-fullheight">
+  <Layout page="home">
+    <section id="top" className="hero is-fullheight">
       <div className="hero-body">
         <div className="container">
           <h1 className="title">

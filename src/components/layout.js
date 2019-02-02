@@ -37,7 +37,7 @@ const Layout = (props,{ data }) => (
           //   { name: 'description', content: 'Probably thinking about a burger right now.' }
           // ]}
         />
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header page={props.page} siteTitle={data.site.siteMetadata.title} />
         <div>
           {props.children}
         </div>

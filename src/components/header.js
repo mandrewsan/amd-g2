@@ -1,14 +1,35 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 import '../scss/nav.scss'
+
+const CustomLink = props => {
+  if (props.page==='home') {
+    return (
+      <AnchorLink
+        offset={props.offset}
+        href={props.href}
+        className={props.className}>
+        {props.children}
+      </AnchorLink>
+    )
+  } else {
+    return (
+      <Link to={props.href} className={props.className}>
+        {props.children}
+      </Link>
+    )
+  }
+}
 
 class Header extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      navbarActive: false
+      navbarActive: false,
+      page: props.page
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -40,12 +61,12 @@ class Header extends React.Component {
         <nav className="navbar is-fixed-top">
           <div className="container">
             <div className="navbar-brand">
-              <Link
+              <CustomLink page={this.state.page}
                 className="navbar-item"
-                to="/"
+                href="#top"
               >
                 ADR
-              </Link>
+              </CustomLink>
               <div 
                 className={`navbar-burger burger ${this.state.navbarActive ? 'is-active':''}`} 
                 data-target="navbarExampleTransparentExample"
@@ -58,12 +79,12 @@ class Header extends React.Component {
     
             <div className={`navbar-menu ${this.state.navbarActive ? 'is-active':''}`}>
               <div className="navbar-end">
-                <Link className="navbar-item" to="#projects">
+                <CustomLink page={this.state.page} className="navbar-item" href="#projects">
                   Projects
-                </Link>
-                <Link className="navbar-item" to="#blog">
+                </CustomLink>
+                <CustomLink page={this.state.page} className="navbar-item" href="#blog">
                   Blog
-                </Link>
+                </CustomLink>
                 {/* <div className="navbar-item has-dropdown is-hoverable">
                   <Link className="navbar-link" to="#blog">
                     Blog
@@ -84,9 +105,9 @@ class Header extends React.Component {
                     </Link>
                   </div>
                 </div> */}
-                <Link className="navbar-item" to="#contact">
+                <CustomLink page={this.state.page} className="navbar-item" href="#contact">
                     Contact
-                  </Link>
+                  </CustomLink>
               </div>
             </div>
           </div>

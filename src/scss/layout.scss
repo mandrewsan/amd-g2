@@ -135,14 +135,19 @@ section {
 .ramblings {
     .post {
         @include margin-vert(30px);
+        @include box-shadow;
         padding: 20px;
-        border: 1px solid #d3d3d3;
         border-radius: 3px;
         max-width: 90%;
         margin: 0 auto;
 
         @include breakpoint-min($desktop) {
             max-width: 80%;
+        }
+
+        @include transition(opacity);
+        &:hover {
+            opacity: 0.5;
         }
     }
     h2 {

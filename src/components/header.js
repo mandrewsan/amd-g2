@@ -37,7 +37,7 @@ class Header extends React.Component {
   render() {
     return (
       <header onClick={this.closeNav}>
-        <nav className="navbar is-transparent is-fixed-top">
+        <nav className="navbar is-fixed-top">
           <div className="container">
             <div className="navbar-brand">
               <Link

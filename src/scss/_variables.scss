@@ -34,6 +34,17 @@ $white: whitesmoke;
     }
 }
 
+@mixin box-shadow {
+    box-shadow: 1px 1px 5px #d7d7d7;
+}
+
+@mixin transition($property) {
+    -moz-transition: $property 0.3s ease-in-out;
+    -webkit-transition: $property 0.3s ease-in-out;
+    transition: $property 0.3s ease-in-out;
+
+}
+
 // Breakpoints
 $mobile: 768px;
 $phablet: 991px;

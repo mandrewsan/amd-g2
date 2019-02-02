@@ -19,7 +19,7 @@
         }
         img {
             width: 100%;
-            box-shadow: 0px 2px 7px darkgrey;
+            @include box-shadow;
             &:hover {
                 cursor: pointer;
                 opacity: 0.8;

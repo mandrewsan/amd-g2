@@ -19,6 +19,35 @@ header {
                     color: $blue-gray;
                     font-weight: 600;
                     letter-spacing: 1.5px;
+
+                    :hover {
+                        .name-long {
+                            opacity: 1;
+                        }
+                        .name-short {
+                            opacity: 0;
+                        }
+                    }
+
+                    svg {
+                        overflow: hidden;
+                        position: relative;
+                        height: 0.7em;
+                        fill: $blue-gray;
+
+                        .name-long, .name-short {
+                            @include transition(opacity);
+                        }
+                        
+                        .name-long {
+                            opacity: 0;
+                        }
+                        .name-short {
+                            opacity: 1;
+                        }
+
+                        
+                    }
                 }
             }
 

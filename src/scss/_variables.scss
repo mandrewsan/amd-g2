@@ -46,7 +46,12 @@ $white: whitesmoke;
     -moz-transition: $property 0.2s ease-in-out;
     -webkit-transition: $property 0.2s ease-in-out;
     transition: $property 0.2s ease-in-out;
+}
 
+@mixin transition-timing($property, $timing) {
+    -moz-transition: $property $timing ease-in-out;
+    -webkit-transition: $property $timing ease-in-out;
+    transition: $property $timing ease-in-out;
 }
 
 // Breakpoints

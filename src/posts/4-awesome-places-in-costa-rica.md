@@ -28,7 +28,7 @@ During the day I'd recommend visiting the Jaguar Rescue Center, which you'll nee
 
 Further down the road is a chocolate tour, which you'll have to catch at a certain hour to do. You'll get a tour of the chocolate farm, and see the process of how chocolate is made. I wasn't lucky enough to make the tour, but at the store down front I bought some artisan chocolate and the guy was even nice enough to let me and my wife take a cacau fruit! If you haven't experienced that, you definitely need to take the tour. If they don't let you taste the cacau, beg them, bribe them, do whatever it takes to get one!
 
-![alt text](http://andrewdelosreyes.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-24-at-9.59.17-PM-300x300.png)
+<!-- ![alt text](http://andrewdelosreyes.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-24-at-9.59.17-PM-300x300.png) -->
 
 ##3. Monteverde
 
@@ -40,13 +40,13 @@ After the zipline tour, you can do the hanging bridge walk and take an opportuni
 
 Also in the area are night tours, which you can do through Selvatura as well. You might be exhausted by then, but if you want to see animals like sloths, snakes, frogs, porcupines and rodents in their natural habitat, the night tour might be worth it. Otherwise, rest up and get ready for the next day's adventure.
 
-![alt text](http://andrewdelosreyes.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-24-at-10.00.08-PM-300x300.png)
+<!-- ![alt text](http://andrewdelosreyes.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-24-at-10.00.08-PM-300x300.png) -->
 
 ##4. Arenal
 
 If you're a driver, the road from Monteverde to Arenal I'd say is one of the funnest roads to drive in the country. There are certain stretches near the lake that are generally safe and well-kept, so you won't have to worry about hitting potholes. Be careful passing other drivers on the road, as it will be hard to see beyond the curves ahead of you.
-
-![alt text](http://andrewdelosreyes.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-24-at-9.59.52-PM-298x300.png)
+<!-- 
+![alt text](http://andrewdelosreyes.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-24-at-9.59.52-PM-298x300.png) -->
 
 When you get to Arenal, get settled in your hotel and get out of there. This is a small town at considerable elevation, situated near a large volcano called Arenal. If you're lucky, it won't be covered in clouds while you're there, and you'll get a chance to see it (I wasn't able to). If not, don't worry - there are tons of other things to do. Have some tasty local food, because in general it should be inexpensive and very good here. As with much of the country, you should be prepared for rain at all times - you don't want to get caught outside with nothing to cover up. Take some time to visit local shops and buy some nice souvenirs (I could have brought home a suitcase full of stuff from Arenal).
 

@@ -1,0 +1,36 @@
+@import 'variables';
+
+.hero {
+  text-align: center;
+  background: url('../img/66.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: transparent;
+  background-position-x: 90%;
+  position: relative;
+  margin-top: -103px;
+  padding-bottom: 164px;
+
+  h1 {
+      letter-spacing: 4px;
+      color: $dark-blue-gray;
+  }
+  h2 {
+      letter-spacing: 1px;
+      @include margin-vert(1em);
+      color: $dark-blue-gray;
+  }
+  &.is-fullheight {
+      height: calc(100vh + 103px);
+  }
+  &:active {
+    opacity: 0.6;
+  }
+  &:hover {
+    cursor: pointer
+  }
+  @include selection {
+    background: transparent;
+  }
+  
+}

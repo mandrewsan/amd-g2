@@ -1,11 +1,59 @@
 import React from 'react'
 import Layout from '../components/layout'
+import '../scss/home.scss'
 import Tabs from '../components/tabs'
 import { Link, graphql } from 'gatsby'
 
 import 'bulma/bulma.sass'
 import '@fortawesome/fontawesome-free/js/all.js'
 import LazyLoad from 'react-lazyload'
+
+class Subline extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      lines: [
+        'is walking to the white car',
+        'is thinking about a burger',
+        'is driving to work',
+        'is writing an app',
+        'forgot about the burger',
+        'is at the meeting',
+        'is fixing the truck',
+        'is listening to JRE'
+      ],
+      currentLine: 'wrote this page',
+      lineIndex: 0
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  componentDidMount() {
+    document.body.addEventListener('click', this.handleClick)
+  }
+
+  handleClick() {
+    let lineIndex = this.state.lineIndex
+    const maxLines = this.state.lines.length
+    
+    if (lineIndex === maxLines -1) lineIndex = 0
+    else lineIndex++
+    
+    this.setState(prevState => ({
+      ...prevState,
+      lineIndex: lineIndex,
+      currentLine: prevState.lines[lineIndex]
+    }))
+  }
+
+  render() {
+    return (
+      <span onClick={() => {this.handleClick()}}>{this.state.currentLine}</span>
+    )
+  }
+
+}
 
 const Skill = props => (
   <div className="column is-four">
@@ -26,15 +74,9 @@ const IndexPage = ({ data }) => (
             Andrew Delos Reyes
           </h1>
           <h2 className="subtitle">
-            is walking to the white car
+            <Subline />
           </h2>
         </div>
-      </div>
-    </section>
-    <section className="intro">
-      <div className="container">
-        <h3>An SEO turned developer</h3>
-        <p>I got my feet wet in the digital world doing SEO and content creation for agencies. With an eye for clean design and a knack for picking new things up, I've developed a love for creating attractive websites and other types of UI.</p>
       </div>
     </section>
     <section className="skills">
@@ -53,7 +95,7 @@ const IndexPage = ({ data }) => (
           />
           <Skill 
             heading="Search Marketing"
-            content="On-site and off-site optimization. Paid campaign creation and management. Google Analytics to tell you what's going on."
+            content="I've been doing SEO and paid advertising since 2008. "
             icon="fa-search"
           />
         </div>
@@ -79,7 +121,7 @@ const IndexPage = ({ data }) => (
     <section className="ramblings" id="blog">
       <div className="container">
         <div>
-          <h2>{data.allMarkdownRemark.totalCount} Posts</h2>
+          {/* <h2>{data.allMarkdownRemark.totalCount} Posts</h2> */}
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div className="post" key={node.id}>
               <Link to={node.fields.slug}>

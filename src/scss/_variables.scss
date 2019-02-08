@@ -12,6 +12,11 @@ $white: whitesmoke;
     font-family: 'Varela Round', sans-serif;
 }
 
+@mixin selection {
+    ::-moz-selection {@content};
+    ::selection {@content};
+}
+
 @mixin padding-vert($padding-vert) {
     padding-top: $padding-vert !important;
     padding-bottom: $padding-vert !important;

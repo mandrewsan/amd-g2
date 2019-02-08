@@ -9,7 +9,8 @@ const ImageTransformer = props => (
           crop="fill" 
           gravity="faces" 
           width="600" 
-          height="600"/>
+          height="600"
+          effect="blur:700"/>
         <Transformation 
           width="600"
           overlay={{

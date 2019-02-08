@@ -61,7 +61,8 @@ class Header extends React.Component {
         <nav className="navbar is-fixed-top">
           <div className="container">
             <div className="navbar-brand">
-              <CustomLink page={this.state.page}
+              <CustomLink 
+                page={this.state.page}
                 className="navbar-item"
                 href="#top"
               >
@@ -94,6 +95,9 @@ class Header extends React.Component {
                 <CustomLink page={this.state.page} className="navbar-item" href="#blog">
                   Blog
                 </CustomLink>
+                <Link className="navbar-item" to="/my-girls">
+                  My Girls
+                </Link>
                 {/* <div className="navbar-item has-dropdown is-hoverable">
                   <Link className="navbar-link" to="#blog">
                     Blog

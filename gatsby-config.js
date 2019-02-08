@@ -19,6 +19,20 @@ module.exports = {
         path: `${__dirname}/src/posts`
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `quotes`,
+        path: `${__dirname}/src/quotes`
+      },
+    },
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        path: `${__dirname}/src/quotes`,
+        typeName: `Quotes`
+      },
+    },
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-gtag`,

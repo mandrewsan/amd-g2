@@ -1,72 +1,71 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
-import { rhythm, scale } from "../utils/typography"
+import Header from './header'
+import './index.css'
+import '../scss/main.scss'
+import '../scss/layout.scss'
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
+function getYear () {
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
+    <span>{(new Date()).getFullYear()}</span>
   )
+}
+
+const year = getYear()
+
+const Layout = (props,{ data }) => (
+  <StaticQuery
+    query={graphql`
+      query LayoutQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <div>
+        <Helmet
+          title={(props.title? props.title : data.site.siteMetadata.title)}
+          // meta={[
+          //   { name: 'description', content: 'Probably thinking about a burger right now.' }
+          // ]}
+        >
+          <script type="text/javascript">{`
+            var _paq = window._paq || [];
+            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+              var u="//analytics.hikaruelio.net/";
+              _paq.push(['setTrackerUrl', u+'matomo.php']);
+              _paq.push(['setSiteId', '2']);
+              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+              g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+            })();
+            `}
+          </script>
+        </Helmet>
+        <Header page={props.page} siteTitle={data.site.siteMetadata.title} />
+        <div>
+          {props.children}
+        </div>
+        <footer>
+          <h2>Copyright &copy; {year} Andrew Delos Reyes. All rights reserved.</h2>
+        </footer>
+      </div>
+    )}
+  />
+)
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

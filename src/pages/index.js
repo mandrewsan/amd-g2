@@ -1,70 +1,168 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import Layout from '../components/layout'
+import '../scss/home.scss'
+import Tabs from '../components/tabs'
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import 'bulma/bulma.sass'
+import '@fortawesome/fontawesome-free/js/all.js'
+import LazyLoad from 'react-lazyload'
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+class Subline extends React.Component {
+  constructor(props) {
+    super(props)
 
-  return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
-    </Layout>
-  )
+    this.state = {
+      lines: [
+        'is walking to the white car',
+        'is thinking about a burger',
+        'is driving to work',
+        'is writing an app',
+        'forgot about the burger',
+        'is at the meeting',
+        'is fixing the truck',
+        'is listening to JRE'
+      ],
+      currentLine: 'wrote this page',
+      lineIndex: 0
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  componentDidMount() {
+    document.body.addEventListener('click', this.handleClick)
+  }
+
+  handleClick() {
+    let lineIndex = this.state.lineIndex
+    const maxLines = this.state.lines.length
+    
+    if (lineIndex === maxLines -1) lineIndex = 0
+    else lineIndex++
+    
+    this.setState(prevState => ({
+      ...prevState,
+      lineIndex: lineIndex,
+      currentLine: prevState.lines[lineIndex]
+    }))
+  }
+
+  render() {
+    return (
+      <span onClick={() => {this.handleClick()}}>{this.state.currentLine}</span>
+    )
+  }
+
 }
 
-export default BlogIndex
+const Skill = props => (
+  <div className="column is-four">
+    <div className="icon">
+      <i className={`fa ${props.icon}`}></i>
+    </div>
+    <h3>{props.heading}</h3>
+    <p>{props.content}</p>
+  </div>
+)
 
-export const pageQuery = graphql`
+const IndexPage = ({ data }) => (
+  <Layout page="home">
+    <section id="top" className="hero is-fullheight">
+      <div className="hero-body">
+        <div className="container">
+          <h1 className="title">
+            Andrew Delos Reyes
+          </h1>
+          <h2 className="subtitle">
+            <Subline />
+          </h2>
+        </div>
+      </div>
+    </section>
+    <section className="skills">
+      <div className="container">
+        <h2>What I do</h2>
+        <div className="columns">
+          <Skill 
+            heading="Digital Design"
+            content="Websites, landing pages, and emails. Just kidding, don't talk to me about emails."
+            icon="fa-eye"
+          />
+          <Skill 
+            heading="Front-end Development"
+            content="I enjoy working with React. Most recently I've gotten into static sites using GatsbyJS, as demonstrated by this site."
+            icon="fa-code"
+          />
+          <Skill 
+            heading="Search Marketing"
+            content="I've been doing SEO and paid advertising since 2008. "
+            icon="fa-search"
+          />
+        </div>
+      </div>
+    </section>
+    <section className="transition">
+      <div className="container">
+        <h2>Projects</h2>
+      </div>
+    </section>
+    <section id="projects" className="projects">
+      <div className="container">
+        <LazyLoad>
+          <Tabs />
+        </LazyLoad>
+      </div>
+    </section>
+    <section className="transition">
+      <div className="container">
+        <h2>Ramblings</h2>
+      </div>
+    </section>
+    <section className="ramblings" id="blog">
+      <div className="container">
+        <div className="columns" style={({'flexWrap':'wrap'})}>
+          {/* <h2>{data.allMarkdownRemark.totalCount} Posts</h2> */}
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <Link className="post" key={node.id} to={node.fields.slug}>
+              <strong>
+                {node.frontmatter.title}{" "}
+                <span>{node.frontmatter.date}</span>
+              </strong>
+              <span>{node.excerpt}</span>
+            </Link> 
+          ))}
+        </div>
+      </div>
+    </section>
+    <section className="callout" id="contact">
+      <div className="container">
+        <h2>Get in touch</h2>
+        <div className="social">
+          <a href="https://twitter.com/its_andrews"><i className="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/andrewdelosreyes/"><i className="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </section>
+  </Layout>
+)
+
+export default IndexPage
+
+export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
       edges {
         node {
-          excerpt
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
           fields {
             slug
           }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
+          excerpt(pruneLength: 300)
         }
       }
     }

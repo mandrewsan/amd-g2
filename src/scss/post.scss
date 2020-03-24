@@ -1,0 +1,31 @@
+@import 'variables';
+
+.post-body {
+  margin-bottom: 6em;
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    @include margin-vert(50px);
+  }
+  h2 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  p {
+    margin-bottom: 30px;
+
+    &:has(a img) {
+      float: left;
+    }
+  }
+  section {
+    padding: 0;
+  }
+
+  ol {
+    margin-left: 20px;
+  }
+}

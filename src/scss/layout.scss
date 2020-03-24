@@ -1,0 +1,170 @@
+@import 'variables';
+
+// * {
+//     background: #000 !important;
+//     color: #0f0 !important;
+//     outline: solid #f00 1px !important;
+//   }
+section {
+    padding: 110px 0 120px;
+}
+
+.intro {
+    background-color: $light-gray;
+    text-align: center;
+
+    h3 {
+        font-weight: 600;
+    }
+    p {
+        margin-top: 40px
+    }
+
+    @include breakpoint-min($tablet) {
+        .container {
+            width: 60%;
+        }
+    }
+}
+
+.skills {
+    h2 {
+        font-size: 1.3em;
+        font-weight: 600;
+        text-align: center;
+    }
+    .columns {
+        margin-top: 70px;
+
+        .column {
+            text-align: center;
+
+            h3 {
+                margin-top: 1em;
+                margin-bottom: 1.5em;
+            }
+    
+            .icon {
+                height: 175px;
+                width: 175px;
+                line-height: 175px;
+                max-width: 100%;
+                background: $blue;
+                border-radius: 50%;
+                -o-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                display: block;
+                color: #fff;
+                font-size: 55px;
+                text-align: center;
+                vertical-align: middle;
+                position: relative;
+                margin: 0 auto 50px;
+                font-weight: 300;
+            }
+        }
+    }
+    .columns {
+        @include widthfix;
+    }
+}
+
+.transition {
+    text-align: center;
+    @include padding-vert(10em);
+    background: url('../img/66.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-x: 70%;
+    position: relative;
+    color: $white;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(112, 116, 125, 0.9);
+
+    }
+
+    h2 {
+        font-size: 3em;
+    }
+}
+
+.ramblings {
+    .post {
+        @include margin-vert(30px);
+        @include box-shadow;
+        padding: 20px;
+        border-radius: 3px;
+        max-width: 90%;
+        margin: 0 auto;
+
+        @include breakpoint-min($desktop) {
+            max-width: 80%;
+        }
+
+        @include transition(opacity);
+        &:hover {
+            opacity: 0.5;
+        }
+
+        color: $dark-gray;
+        @include main-font;
+    }
+    h2 {
+        text-align: center;
+    }
+    strong {
+        margin-bottom: 12px;
+        color: $dark-gray;
+        font-size: 0.8em;
+        letter-spacing: 0.5px;
+        font-weight: normal;
+        text-transform: uppercase;
+        span {
+            display: block;
+            font-size: 0.8em;
+            line-height: 1.8em;
+        }
+    }
+    span {
+        font-size: 0.7em;
+        line-height: 0.9em;
+        color: $gray;
+    }
+}
+
+.callout {
+    background-color: $light-gray;
+    text-align: center;
+
+    h2 {
+        font-size: 1.3em;
+        font-weight: 600;
+    }
+    .social {
+        @include padding-vert(2em);
+        a {
+            font-size: 2em;
+            @include padding-horiz(8px);
+        }
+    }
+}
+
+footer {
+    background-color: $dark-gray;
+    padding: 5em;
+    color: $white;
+    text-align: center;
+    h2 {
+        text-transform: none;
+        font-size: 0.8em;
+        line-height: 1.3em;
+    }
+}

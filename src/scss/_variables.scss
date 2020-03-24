@@ -1,0 +1,78 @@
+$dark-gray: #333333;
+$blue-gray: #45658f;
+$dark-blue-gray: #314a6c;
+$light-gray: #f3f5f8;
+$gray: #8c9398;
+$blue: #209cee;
+$white: whitesmoke;
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+@mixin main-font() {
+    font-family: 'Varela Round', sans-serif;
+}
+
+@mixin selection {
+    ::-moz-selection {@content};
+    ::selection {@content};
+}
+
+@mixin padding-vert($padding-vert) {
+    padding-top: $padding-vert !important;
+    padding-bottom: $padding-vert !important;
+}
+  
+@mixin padding-horiz($padding-horiz) {
+    padding-left: $padding-horiz;
+    padding-right: $padding-horiz;
+}
+
+@mixin margin-vert($property) {
+    margin-top: $property !important;
+    margin-bottom: $property !important;
+}
+@mixin margin-horiz($property) {
+    margin-left: $property !important;
+    margin-right: $property !important;
+}
+
+@mixin widthfix {
+    max-width: 100%;
+    @include breakpoint-max($desktop) {
+        margin: 0 auto;
+    }
+}
+
+@mixin box-shadow {
+    box-shadow: 1px 1px 5px #d7d7d7;
+}
+
+@mixin transition($property) {
+    -moz-transition: $property 0.2s ease-in-out;
+    -webkit-transition: $property 0.2s ease-in-out;
+    transition: $property 0.2s ease-in-out;
+}
+
+@mixin transition-timing($property, $timing) {
+    -moz-transition: $property $timing ease-in-out;
+    -webkit-transition: $property $timing ease-in-out;
+    transition: $property $timing ease-in-out;
+}
+
+// Breakpoints
+$mobile: 768px;
+$phablet: 991px;
+$tablet: 1024px;
+$desktop: 1200px;
+
+@mixin breakpoint-min($device) {
+    @media (min-width: $device) {
+        @content;
+    }
+}
+
+@mixin breakpoint-max($device) {
+    @media (max-width: $device) {
+        @content;
+    }
+}

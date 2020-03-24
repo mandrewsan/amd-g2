@@ -120,26 +120,21 @@ const IndexPage = ({ data }) => (
     </section>
     <section className="ramblings" id="blog">
       <div className="container">
-        <div className="columns" style={({'flexWrap':'wrap'})}>
+        <div className="columns is-variable is-6" style={({'flexWrap':'wrap'})}>
           {/* <h2>{data.allMarkdownRemark.totalCount} Posts</h2> */}
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <Link className="post" key={node.id} to={node.fields.slug}>
-              <strong>
-                {node.frontmatter.title}{" "}
-                <span>{node.frontmatter.date}</span>
-              </strong>
-              <span>{node.excerpt}</span>
-            </Link> 
+            <div className="column is-one-third">
+              <div className="post">
+                <Link key={node.id} to={node.fields.slug}>
+                  <strong>
+                    {node.frontmatter.title}{" "}
+                    <span>{node.frontmatter.date}</span>
+                  </strong>
+                  <span>{node.excerpt}</span>
+                </Link>
+              </div>
+            </div>
           ))}
-        </div>
-      </div>
-    </section>
-    <section className="callout" id="contact">
-      <div className="container">
-        <h2>Get in touch</h2>
-        <div className="social">
-          <a href="https://twitter.com/its_andrews"><i className="fab fa-twitter"></i></a>
-          <a href="https://www.linkedin.com/in/andrewdelosreyes/"><i className="fab fa-linkedin"></i></a>
         </div>
       </div>
     </section>

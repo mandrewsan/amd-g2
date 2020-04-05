@@ -51,6 +51,7 @@ const Layout = (props,{ data }) => (
             })();
             `}
           </script>
+          <script data-ad-client="ca-pub-1500683799778293" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Helmet>
         <Header page={props.page} siteTitle={data.site.siteMetadata.title} />
         <div>
